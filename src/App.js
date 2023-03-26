@@ -2,27 +2,36 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  var name ={
-    name:"Prince",
-    job : "Web Developer",
-  }
-  var headerStyle = {
-    color:'red',
-    background:'yellow',
-    padding:'10px 30px'
-  }
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p> 
-        < h1 className = "" style = { headerStyle} > Hello!I am {name.name} and my age is { name.job } < /h1>
-        
-      </header>
-    </div>
-  );
+
+  return ( < div className = 'App' >
+    <header className = 'app-header' >
+    <p > I am a react Parson < /p> </header>
+    <Parson></Parson>
+    < Parson1></Parson1>
+    <Parson></Parson>
+     </div>
+  )
 }
 
-export default App;
+function Parson() {
+  const ParsonStyle = {
+    border:'2px solid red',
+    margin:'10px',
+  }
+  return ( < div style = {
+        ParsonStyle
+      } >
+    <h1 > Hello!I Am Prince </h1> 
+    <h4 > I Am a student < /h4> 
+    </div>)
+  }
+  function Parson1() {
+    return ( < div >
+      <
+      h1 > Hello!I Am Abir < /h1>  <
+      h4 > I Am a Doctor < /h4>  <
+      /div>)
+    }
+
+
+  export default App;
