@@ -2,16 +2,29 @@ import './App.css';
 
 function App() {
 
-  const naykos = ["Anawr", "Salmal Sha","alomgir"];
+  // Create multipul components form an array of object 
+
+
+  const naykos = ["Manna", "Salmal Sha","alomgir","Bappi","Shuvo","Abir"];
   const products = [{Name:'Photoshop',Price:'50.99'},
                     {Name : "Illasteter",Price:'45.87'}
-                  ]
+                  ];
+                  //array function
+  // const naykosList = naykos.map(nayok => nayok);
+  
 
   return ( < div className = 'App' >
     <header header className = 'app-header'>
        <p> I am a react Parson </p> 
-     </header >
 
+        <ul>
+          {
+            naykos.map(nayok => <li>{nayok}</li>)
+          }
+        </ul>
+
+     </header >
+        
 
         <Parson name = 'Rubel Kahan' nayka ='Moushome'></Parson>
         <Parson name = {naykos[1]}  nayka = 'shabana'></Parson> 
