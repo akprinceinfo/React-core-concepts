@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useState} from 'react';
 
 function App() {
 
@@ -7,7 +8,8 @@ function App() {
 
   const naykos = ["Manna", "Salmal Sha","alomgir","Bappi","Shuvo","Abir"];
   const products = [{Name:'Photoshop',Price:'50.99'},
-                    {Name : "Illasteter",Price:'45.87'}
+                    {Name : "Illasteter",Price:'45.87'},
+                    {Name : "Apple",Price:'29.87'}
                   ];
                   //array function
   // const naykosList = naykos.map(nayok => nayok);
@@ -21,10 +23,17 @@ function App() {
           {
             naykos.map(nayok => <li>{nayok}</li>)
           }
+          {
+            products.map(product=><li>{product.Name}</li>)
+            
+          }
+
         </ul>
 
      </header >
-        
+        {/* { // Problem ------------> ???????????
+          products.map(pd=><Parson productName = {pd}></Parson>)
+        } */}
 
         <Parson name = 'Rubel Kahan' nayka ='Moushome'></Parson>
         <Parson name = {naykos[1]}  nayka = 'shabana'></Parson> 
@@ -35,6 +44,9 @@ function App() {
         {/* ---------------------------- */}
 
         <Product productName = {products[1]} ProductPrice={products[1].Price}></Product>
+    
+          {/* -------------counter--------------- */}
+          <Counter></Counter>
      </div>
   )
 }
@@ -85,7 +97,26 @@ function Parson(props) {
     )
   }
 
+  // this is counter section 
 
+  function Counter(){
+    const[count,setCount] = useState(0);
+
+    const handleIncrease = ()=> {
+     setCount(count+ 1);
+    };
+
+    // const disCrease = ()=>{
+    // }
+
+    return(
+      <div>
+        <h1>Count : {count}</h1>
+        <button onClick={handleIncrease}>Increase</button>
+        <button>Discrease</button>
+      </div>
+    )
+  }
 
 
 
