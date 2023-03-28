@@ -97,23 +97,18 @@ function Parson(props) {
     )
   }
 
+  
   // this is counter section 
+    // const -> state are name
+    // setCount -> function are name = set korar jonno
 
   function Counter(){
     const[count,setCount] = useState(0);
-
-    const handleIncrease = ()=> {
-     setCount(count+ 1);
-    };
-
-    // const disCrease = ()=>{
-    // }
-
     return(
       <div>
         <h1>Count : {count}</h1>
-        <button onClick={handleIncrease}>Increase</button>
-        <button>Discrease</button>
+        <button onClick={()=> { setCount(count + 1)}}>+ Increase</button>
+        <button onClick={()=> setCount(count - 1)}> - Discrease</button>
       </div>
     )
   }
