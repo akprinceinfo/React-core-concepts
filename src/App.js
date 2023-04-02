@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 function App() {
 
@@ -31,6 +31,12 @@ function App() {
         </ul>
 
      </header >
+      {/* Dynamic (User) Data Load */}
+          <br></br>
+
+           <UsersApi></UsersApi>
+           
+            <br></br>
         {/* { // Problem ------------> ???????????
           products.map(pd=><Parson productName = {pd}></Parson>)
         } */}
@@ -47,6 +53,8 @@ function App() {
     
           {/* -------------counter--------------- */}
           <Counter></Counter>
+
+         
      </div>
   )
 }
@@ -97,7 +105,7 @@ function Parson(props) {
     )
   }
 
-  
+
   // this is counter section 
     // const -> state are name
     // setCount -> function are name = set korar jonno
@@ -108,13 +116,32 @@ function Parson(props) {
       <div>
         <h1>Count : {count}</h1>
         <button onClick={()=> { setCount(count + 1)}}>+ Increase</button>
-        <button onClick={()=> setCount(count - 1)}> - Discrease</button>
+        <button onClick={()=> {setCount(count - 1)}}> - Discrease</button>
       </div>
     )
   }
 
+  // Dynamic (User) Data Load
 
-
+  function UsersApi(){
+    const[user, setUser] = useState([]);
+    // useEffect Data load korar jonno babohar hoica
+    useEffect(()=> {
+      fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => setUser(data))
+    },[])
+    return(
+      <div>
+        <h3>Dynamic User Data : {user.length}</h3>
+        <ul>
+          {
+           user.map(user => <li>{user.name}</li>)
+          }
+        </ul>
+      </div>
+    )
+  }
 
 
 
